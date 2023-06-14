@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python manage.py makemigrations && python manage.pymigrate && python manage.py runserver 
+    container_name: test_project
+    volumes:
+      - .:/test_project
+
+    ports:
+      - "8000:8000"
+  
